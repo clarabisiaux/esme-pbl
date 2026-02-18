@@ -5,5 +5,5 @@ class tictactoe :
     def __init__(self,couleur):
         self.couleur = couleur
 
-coucou la team
+
 
