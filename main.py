@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #pbl1: Chloé, Sarah, Nour, Clara
 =======
 class tictactoe :
