@@ -52,11 +52,6 @@ class TicTacToeApp:
 
         self.menu_screen() 
 =======
-class tictactoe :
-    #pbl1
-    def __init__(self,couleur):
-        self.couleur = couleur
-
 # -------- GAME LOGIC -------- 
 
     def play(self, index): 
