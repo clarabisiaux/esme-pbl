@@ -1,16 +1,9 @@
 #pbl1: Chloé, Sarah, Nour, Clara
 import tkinter as tk 
-
 from board.board_view import Board 
+from ai.ai import best_move  
 
-from ai.ai import best_move 
-
- 
-# ====================== 
-
-# CONFIGURATION 
-
-# ====================== 
+# CONFIGURATION  
 
 AI_LEVELS = { 
 
@@ -46,7 +39,25 @@ class TicTacToeApp:
  
 
         self.menu_screen() 
-=======
+
+# INTERFACE
+def clear(self): #to clear the window 
+    for widget in self.root.winfo_children(): 
+        widget.destroy() 
+
+def menu_screen (self):
+    self.clear() #tomake sure the window is empty before adding widgets
+    tk.Label(self.root, text="TIC TAC TOE", font=("Arial", 20)).pack(pady=10) #title + font + places it on the window
+    tk.Button(self.root, text="Player vs Player", width=20, command=self.start_pvp).pack(pady=5) #creates buttons for the two possibilities #command = what happens when you click the button
+    tk.Button(self.root, text="Player vs AI", width=20, command=self.ai_menu).pack(pady=5) 
+
+def ai_menu(self):
+    self.clear() 
+    tk.Label(self.root, text="Choose a difficulty level", font=("Arial", 16)).pack(pady=10) 
+ 
+    for level in AI_LEVELS: 
+        tk.Button(self.root, text=level, width=25, command=lambda l=level: self.start_ai(l)).pack(pady=5) #creates a button for difficulty and start this difficulty #lambda function to remember the right level 
+        tk.Button(self.root, text="Back to menu", command=self.menu_screen).pack(pady=10) 
 
  
 # START GAME 
