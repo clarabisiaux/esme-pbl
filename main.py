@@ -22,13 +22,8 @@ AI_LEVELS = {
 
 } 
 
- 
-
-# ====================== 
 
 # APPLICATION 
-
-# ====================== 
 
 class TicTacToeApp: 
 
@@ -52,7 +47,38 @@ class TicTacToeApp:
 
         self.menu_screen() 
 =======
-# -------- GAME LOGIC -------- 
+
+ 
+# START GAME 
+    def start_pvp(self): 
+        self.vs_ai = False 
+        self.start_game() 
+ 
+    def start_ai(self, level): 
+        self.vs_ai = True 
+        self.ai_depth = AI_LEVELS[level] 
+        self.start_game() 
+ 
+    def start_game(self): 
+        self.board.reset() 
+        self.current = "X" 
+        self.clear() 
+ 
+        self.buttons = [] 
+        frame = tk.Frame(self.root) 
+        frame.pack() 
+ 
+        for i in range(9): 
+            btn = tk.Button(frame, text=" ", font=("Arial", 24), 
+                            width=5, height=2, 
+                            command=lambda i=i: self.play(i)) 
+            btn.grid(row=i//3, column=i%3) 
+            self.buttons.append(btn) 
+ 
+        self.status = tk.Label(self.root, text="Tour : X", font=("Arial", 14)) 
+        self.status.pack(pady=10)
+     
+#   GAME LOGIC 
 
     def play(self, index): 
 
@@ -112,3 +138,8 @@ class TicTacToeApp:
 
         tk.Button(self.root, text="Menu", command=self.menu_screen).pack(pady=10) 
 
+#  LANCEMENT 
+if __name__ == "__main__": 
+    root = tk.Tk() 
+    app = TicTacToeApp(root) 
+    root.mainloop() 
