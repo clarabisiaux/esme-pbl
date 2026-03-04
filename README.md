@@ -49,7 +49,7 @@ Explain how your code is organized. An "Architect-level" README should describe 
 How can a user verify the code works?
 
 - Run the application using `python main.py`.
-- Choose a game mode (Player vs Player or Player vs AI).
+- Choose a game mode (Player vs Player or Player vs AI or AI vs AI).
 - Play by clicking on the grid.
 
 Happy Path demonstration:
