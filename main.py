@@ -48,7 +48,7 @@ class TicTacToeApp:
             self.root, 
             text="Player vs Player", 
             width = 18,
-            height = 2,
+            height = 1,
             font = ("Arial Rounded MT Bold", 30),
             bg = "#FFB3DA",
             command=self.start_pvp
@@ -57,7 +57,7 @@ class TicTacToeApp:
             self.root, 
             text="Player vs AI", 
             width = 18,
-            height = 2,
+            height = 1,
             font = ("Arial Rounded MT Bold", 30),
             bg = "#E0B3FF",
             command=self.ai_menu
@@ -66,7 +66,7 @@ class TicTacToeApp:
             self.root, 
             text="AI vs AI", 
             width = 18,
-            height = 2,
+            height = 1,
             font = ("Arial Rounded MT Bold", 30),
             bg = "#D8C4FF",
             command=self.start_ai_vs_ai
