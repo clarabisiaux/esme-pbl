@@ -78,5 +78,3 @@ What features would you add if you had more time or a larger budget?
 - Implement an online multiplayer mode
 - Allow different board sizes (4x4, 5x5)
 - Add player statistics and game history
-
-_Generated as part of the Programming Course Production Deliverables._
