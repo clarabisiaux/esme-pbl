@@ -44,7 +44,7 @@ class TicTacToeApp:
  
         for level in AI_LEVELS: 
             tk.Button(self.root, text=level, width=25, command=lambda l=level: self.start_ai(l)).pack(pady=5) #creates a button for difficulty and start this difficulty #lambda function to remember the right level 
-            tk.Button(self.root, text="Back to menu", command=self.menu_screen).pack(pady=10) 
+        tk.Button(self.root, text="Back to menu", command=self.menu_screen).pack(pady=10) 
 
  
 # START GAME 
