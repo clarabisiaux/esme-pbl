@@ -17,7 +17,7 @@ def minimax(board, depth, maximizing, ai_symbol, human_symbol): #recursive funct
     best = -1000
     for move in board.available_moves():
       board.grid[move] = ai_symbol
-      best = min(best, minimax(board, depth-1, False, ai_symbol, human_symbol)
+      best = min(best, minimax(board, depth-1, False, ai_symbol, human_symbol))
       board.grid[move] = " "
     return best
 
@@ -25,7 +25,7 @@ def minimax(board, depth, maximizing, ai_symbol, human_symbol): #recursive funct
     best = 1000
     for move in board.available_moves():
       board.grid[move] = human_symbol
-      best = min(best, minimax(board, depth-1, True, ai_symbol, human_symbol)
+      best = min(best, minimax(board, depth-1, True, ai_symbol, human_symbol))
       board.grid[move] = " "
     return best
 
@@ -42,4 +42,5 @@ def best_move(board, depth, ai_symbol, human_symbol):
       move_choice = move
       
     return move_choice
+
 
