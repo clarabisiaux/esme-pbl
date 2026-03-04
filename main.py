@@ -19,10 +19,14 @@ class TicTacToeApp:
     def __init__(self, root): 
         self.root = root 
         self.root.title("Tic Tac Toe") 
+        self.root.geometry("500x500")
+        self.root.resizable(False,False)
+        self.root.configure(bg = "#B8DFFF")
 
         self.board = Board() 
         self.current = "X" 
         self.vs_ai = False 
+        self.ai_vs_ai = False
         self.ai_depth = None 
 
         self.menu_screen() 
@@ -34,17 +38,61 @@ class TicTacToeApp:
 
     def menu_screen (self):
         self.clear() #tomake sure the window is empty before adding widgets
-        tk.Label(self.root, text="TIC TAC TOE", font=("Arial", 20)).pack(pady=10) #title + font + places it on the window
-        tk.Button(self.root, text="Player vs Player", width=20, command=self.start_pvp).pack(pady=5) #creates buttons for the two possibilities #command = what happens when you click the button
-        tk.Button(self.root, text="Player vs AI", width=20, command=self.ai_menu).pack(pady=5) 
+        tk.Label(
+            self.root, 
+            text="TIC TAC TOE", 
+            font=("Arial Rounded MT Bold", 50, "bold"),
+            bg = "#B8DFFF"
+        ).pack(pady=15) #title + font + places it on the window
+        tk.Button(
+            self.root, 
+            text="Player vs Player", 
+            width = 18,
+            height = 2,
+            font = ("Arial Rounded MT Bold", 30),
+            bg = "#FFB3DA",
+            command=self.start_pvp
+        ).pack(pady=15) #creates buttons for the two possibilities #command = what happens when you click the button
+        tk.Button(
+            self.root, 
+            text="Player vs AI", 
+            width = 18,
+            height = 2,
+            font = ("Arial Rounded MT Bold", 30),
+            bg = "#E0B3FF",
+            command=self.ai_menu
+        ).pack(pady=15) 
+        tk.Button(
+            self.root, 
+            text="AI vs AI", 
+            width = 18,
+            height = 2,
+            font = ("Arial Rounded MT Bold", 30),
+            bg = "#D8C4FF",
+            command=self.ai_menu
+        ).pack(pady=15)
 
     def ai_menu(self):
         self.clear() 
-        tk.Label(self.root, text="Choose a difficulty level", font=("Arial", 16)).pack(pady=10) 
+        tk.Label(self.root, text="Choose a difficulty level", font=("Arial Rounded MT Bold", 30), bg = "#B8DFFF").pack(pady=10) 
  
         for level in AI_LEVELS: 
-            tk.Button(self.root, text=level, width=25, command=lambda l=level: self.start_ai(l)).pack(pady=5) #creates a button for difficulty and start this difficulty #lambda function to remember the right level 
-        tk.Button(self.root, text="Back to menu", command=self.menu_screen).pack(pady=10) 
+            tk.Button(
+                self.root, 
+                text = level, 
+                width = 15,
+                height = 2,
+                font = ("Arial Rounded MT Bold", 20),
+                bg = "#FFB3DA",
+                command=lambda l=level: self.start_ai(l)
+            ).pack(pady=10) #creates a button for difficulty and start this difficulty #lambda function to remember the right level 
+        tk.Button(
+            self.root,
+            text="Back to menu",
+            font = ("Arial Rounded MT Bold", 20),
+            bg = "#D8C4FF",
+            command=self.menu_screen
+        ).pack(pady=10) 
 
  
 # START GAME 
@@ -63,17 +111,17 @@ class TicTacToeApp:
         self.clear() 
  
         self.buttons = [] 
-        frame = tk.Frame(self.root) 
-        frame.pack() 
+        frame = tk.Frame(self.root,bg = "#B8DFFF") 
+        frame.pack(pady = 50) 
  
         for i in range(9): 
-            btn = tk.Button(frame, text=" ", font=("Arial", 24), 
+            btn = tk.Button(frame, text=" ", font=("Arial Rounded MT Bold", 24), 
                             width=5, height=2, 
                             command=lambda i=i: self.play(i)) 
             btn.grid(row=i//3, column=i%3) 
             self.buttons.append(btn) 
  
-        self.status = tk.Label(self.root, text="Tour : X", font=("Arial", 14)) 
+        self.status = tk.Label(self.root, text="Turn : X", font=("Arial Rounded MT Bold", 14), bg = "#B8DFFF") 
         self.status.pack(pady=10)
      
 #   GAME LOGIC 
