@@ -1,4 +1,4 @@
-# **📦 \[Project Name]**
+# **📦 \[X/O Arena (Tictactoe)]**
 
 **MVP Status:** \[e.g., v1.0-Production]
 
@@ -8,6 +8,7 @@
 ## **🎯 Project Overview**
 
 Provide a concise (2-3 sentence) description of what your application does and the specific problem it solves. Why did you build this?
+
 The application is a Tictactoe game, where the player can chose to play with another player, or to play against an AI (and then choose the level of difficulty). We chose to do the code on VSCode because it allows to further develop our skills on this code editor and share the work easily between the members of the group.
 
 
