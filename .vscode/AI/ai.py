@@ -46,21 +46,22 @@ def minimax(board, depth, maximizing, ai_symbol, human_symbol):
 def best_move(board, depth, ai_symbol, human_symbol):
     best_score = -1000
     move_choice = None
-    scores = []  # ← liste pour stocker les scores
-    score, path = minimax(board, depth-1, False, ai_symbol, human_symbol)
-    print("Ideal AI winning sequence:", [move] + path)
+    scores = []  #liste pour stocker les scores
 
     for move in board.available_moves():
         board.grid[move] = ai_symbol
-        score = minimax(board, depth-1, False, ai_symbol, human_symbol)
+        score, path = minimax(board, depth-1, False, ai_symbol, human_symbol)
         board.grid[move] = " "
 
-        scores.append((move, score))  # ← on stocke chaque score
+        scores.append((move, score))  #on stocke chaque score
 
         if score > best_score:
             best_score = score
             move_choice = move
-    print("\nIdeal opponent winning sequence:")
+            best_path = [move] + path
+  
+    print("\nIdeal AI winning sequence:")
+    print(best_path)
 
     worst_score = 1000
     worst_path = []
@@ -74,9 +75,9 @@ def best_move(board, depth, ai_symbol, human_symbol):
             worst_score = val
             worst_path = [move] + path
 
+    print("\nIdeal opponent winning sequence:")
     print(worst_path)
 
-    # ---- PRINTS DEMANDÉS ----
     print("\nGeneration scores:")
     for move, score in scores:
         print(f"Move {move} → Score {score}")
@@ -84,16 +85,6 @@ def best_move(board, depth, ai_symbol, human_symbol):
     print("Minimum score:", min(score for _, score in scores))
     print("Maximum score:", max(score for _, score in scores))
 
-    return move_choice
-  
-  for move in board.available_moves(): #try all the possible moves
-    board.grid[move] = ai_symbol
-    score = minimax(board, depth-1, False, ai_symbol, human_symbol) #score for each move
-    board.grid[move] = " "
-    if score>best_score: #keep the best score
-      best_score = score
-      move_choice = move
-      
     return move_choice
 
 
