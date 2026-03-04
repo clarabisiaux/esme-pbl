@@ -1,6 +1,6 @@
-# **📦 \[X/O Arena (Tictactoe)]**
+# **📦 [X/O Arena (Tictactoe)]**
 
-**MVP Status:** \[e.g., v1.0-Production]
+**MVP Status:** v1.0-Production
 
 **Group Members:** Sarah AVENAS, Chloé ALLAIRE, Nour JABER, Clara BISIAUX
 
@@ -9,25 +9,25 @@
 
 Provide a concise (2-3 sentence) description of what your application does and the specific problem it solves. Why did you build this?
 
-The application is a Tictactoe game, where the player can chose to play with another player, or to play against an AI (and then choose the level of difficulty). We chose to do the code on VSCode because it allows to further develop our skills on this code editor and share the work easily between the members of the group.
+The application is a TicTacToe game where the player can choose to play against another player or against an AI with different levels of difficulty. The goal of the project was to build an interactive graphical application in Python while learning how to structure a program into multiple modules and implement an artificial intelligence using the Minimax algorithm. We chose to develop the project using VSCode because it allows easy collaboration between team members and helps us improve our development workflow.
 
 
 ## **🚀 Quick Start (Architect Level: < 60s Setup)**
 
 Instructions on how to get this project running on a fresh machine.
 
-1. **Clone the repo:**\
-   git clone \[your-repo-link]\
-   cd \[project-folder]
+1. **Clone the repo:**  
+   git clone [your-repo-link]  
+   cd [project-folder]
 
-2. **Setup Virtual Environment:**\
-   python -m venv .venv\
-   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+2. **Setup Virtual Environment:**  
+   python -m venv .venv  
+   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 
-3. **Install Dependencies:**\
+3. **Install Dependencies:**  
    pip install -r requirements.txt
 
-4. **Run Application:**\
+4. **Run Application:**  
    python main.py
 
 
@@ -35,35 +35,48 @@ Instructions on how to get this project running on a fresh machine.
 
 Explain how your code is organized. An "Architect-level" README should describe the separation of concerns.
 
-- **main.py**: Entry point of the application.
+- **main.py**: Entry point of the application. It initializes the Tkinter window, displays the menus, manages the game flow and connects the interface with the game logic.
 
-- **logic/**: Contains core algorithms and data processing.
+- **ai/**: Contains the artificial intelligence of the game. It implements the Minimax algorithm used to calculate the best possible move for the AI depending on the selected difficulty level.
 
-- **ui/**: Handles user interactions (CLI/GUI).
+- **board/**: Contains the Board class responsible for managing the game grid, checking available moves, detecting a winner, and resetting the board.
 
-- **utils/**: Helper functions and shared constants.
+- **player/**: Contains the Player class which represents a player and stores the player's symbol (X or O).
 
 
 ## **🧪 Testing & Validation**
 
 How can a user verify the code works?
 
-- List any test scripts included (e.g., pytest tests/).
+- Run the application using `python main.py`.
+- Choose a game mode (Player vs Player or Player vs AI).
+- Play by clicking on the grid.
 
-- Describe the "Happy Path" inputs for the demo.
+Happy Path demonstration:
+
+- The game starts with player **X**.
+- Players alternate turns after each move.
+- The game detects a win when three symbols are aligned.
+- If the board is full with no winner, the game declares a draw.
+- The user can return to the main menu after the game ends.
 
 
 ## **📦 Dependencies**
 
-List the main third-party libraries used and _why_ they were chosen:
+List the main third-party libraries used and why they were chosen:
 
-- library\_name: \[Reason for use]
+- **tkinter**: Used to create the graphical user interface and manage user interactions such as buttons, menus, and the game grid.
 
 
 ## **🔮 Future Roadmap (v2.0)**
 
 What features would you add if you had more time or a larger budget?
 
-_Generated as part of the \[Course Name] Production Deliverables._
+- Add a score tracking system between games
+- Improve the graphical interface and design
+- Add animations and sound effects
+- Implement an online multiplayer mode
+- Allow different board sizes (4x4, 5x5)
+- Add player statistics and game history
 
-__
+_Generated as part of the Programming Course Production Deliverables._
