@@ -69,7 +69,7 @@ class TicTacToeApp:
             height = 2,
             font = ("Arial Rounded MT Bold", 30),
             bg = "#D8C4FF",
-            command=self.ai_menu
+            command=self.start_ai_vs_ai
         ).pack(pady=15)
 
     def ai_menu(self):
@@ -104,6 +104,12 @@ class TicTacToeApp:
         self.vs_ai = True 
         self.ai_depth = AI_LEVELS[level] 
         self.start_game() 
+
+    def start_ai_vs_ai(self): 
+        self.vs_ai = True 
+        self.ai_vs_ai = True
+        self.ai_depth = 9
+        self.start_game()
  
     def start_game(self): 
         self.board.reset() 
@@ -142,12 +148,18 @@ class TicTacToeApp:
         self.current = "O" if self.current == "X" else "X" 
         self.status.config(text=f"Tour : {self.current}") 
 
-        if self.vs_ai and self.current == "O": 
-            self.root.after(300, self.ai_turn) 
+        if self.vs_ai:
+            if self.ai_vs_ai:
+                self.root.after(300, self.ai_turn)
+            elif self.current == "O":
+                self.root.after(300, self.ai_turn)
 
-    def ai_turn(self): 
-        move = best_move(self.board, self.ai_depth, "O", "X") 
-        self.play(move) 
+    def ai_turn(self):
+        if self.current == "X":
+            move = best_move(self.board, self.ai_depth, "X", "O")
+        else:
+            move = best_move(self.board, self.ai_depth, "O", "X")
+        self.play(move)
 
     def end_game(self, winner): 
 
