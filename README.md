@@ -2,12 +2,13 @@
 
 **MVP Status:** \[e.g., v1.0-Production]
 
-**Group Members:** Name 1, Name 2, Name 3, Name 4
+**Group Members:** Sarah AVENAS, Chloé ALLAIRE, Nour JABER, Clara BISIAUX
 
 
 ## **🎯 Project Overview**
 
 Provide a concise (2-3 sentence) description of what your application does and the specific problem it solves. Why did you build this?
+The application is a Tictactoe game, where the player can chose to play with another player, or to play against an AI (and then choose the level of difficulty). We chose to do the code on VSCode because it allows to further develop our skills on this code editor and share the work easily between the members of the group.
 
 
 ## **🚀 Quick Start (Architect Level: < 60s Setup)**
